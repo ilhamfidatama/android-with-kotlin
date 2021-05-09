@@ -1,21 +1,28 @@
 package com.ilhamfidatama.androidwithkotlin
 
-object Utils {
-    const val EXTRA_USERNAME = "username"
+import com.ilhamfidatama.androidwithkotlin.crypto.Cryptocurrency
 
-    val movies: MutableList<Movie> = mutableListOf(
-        Movie(name = "The Ragnarok", popularity = 135.055, imagePath = "https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg"),
-        Movie(name = "Spider-Man: Homecoming", popularity = 140.322, imagePath = "https://image.tmdb.org/t/p/w500/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg"),
-        Movie(name = "Logan", popularity = 82.796, imagePath = "https://image.tmdb.org/t/p/w500/fnbjcRDYn6YviCcePDnGdyAkYsB.jpg"),
-        Movie(name = "Doctor Strange", popularity = 118.368, imagePath = "https://image.tmdb.org/t/p/w500/xf8PbyQcR5ucXErmZNzdKR0s8ya.jpg"),
-        Movie(name = "Deadpool", popularity = 93.844, imagePath = "https://image.tmdb.org/t/p/w500/8peYuPeLawgCFhuI4IcDjdrAAXw.jpg")
+object Utils {
+
+    val cryptocurrencies: MutableList<Cryptocurrency> = mutableListOf(
+        Cryptocurrency(name = "Bitcoin", lastPrice = 825561000.0, imagePath = "https://indodax.com/v2/logo/png/color/btc.png"),
+        Cryptocurrency(name = "Dogecoin", lastPrice = 6000.0, imagePath = "https://indodax.com/v2/logo/png/color/doge.png"),
+        Cryptocurrency(name = "Ethereum", lastPrice = 82796.0, imagePath = "https://indodax.com/v2/logo/png/color/eth.png"),
+        Cryptocurrency(name = "Litecoin", lastPrice = 118368.0, imagePath = "https://indodax.com/v2/logo/png/color/ltc.png"),
+        Cryptocurrency(name = "Wrapped Bitcoin", lastPrice = 93844.0, imagePath = "https://indodax.com/v2/logo/png/color/wbtc.png"),
+        Cryptocurrency(name = "BitShares", lastPrice = 14532.0, imagePath = "https://indodax.com/v2/logo/png/color/bts.png"),
+        Cryptocurrency(name = "Coti", lastPrice = 93844.0, imagePath = "https://indodax.com/v2/logo/png/color/coti.png")
     )
 
     val images = mutableListOf<String>(
-            "https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg",
-            "https://image.tmdb.org/t/p/w500/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg",
-            "https://image.tmdb.org/t/p/w500/fnbjcRDYn6YviCcePDnGdyAkYsB.jpg",
-            "https://image.tmdb.org/t/p/w500/xf8PbyQcR5ucXErmZNzdKR0s8ya.jpg",
-            "https://image.tmdb.org/t/p/w500/8peYuPeLawgCFhuI4IcDjdrAAXw.jpg"
+            "https://indodax.com/v2/logo/png/color/ten.png",
+            "https://indodax.com/v2/logo/png/color/act.png",
+            "https://indodax.com/v2/logo/png/color/ada.png",
+            "https://indodax.com/v2/logo/png/color/bnb.png",
+            "https://indodax.com/v2/logo/png/color/btt.png",
+            "https://indodax.com/v2/logo/png/color/firo.png",
+            "https://indodax.com/v2/logo/png/color/ignis.png",
+            "https://indodax.com/v2/logo/png/color/nxt.png",
+            "https://indodax.com/v2/logo/png/color/zil.png",
     )
 }

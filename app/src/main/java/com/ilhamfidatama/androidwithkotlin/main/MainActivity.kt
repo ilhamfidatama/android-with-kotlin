@@ -1,13 +1,12 @@
-package com.ilhamfidatama.androidwithkotlin
+package com.ilhamfidatama.androidwithkotlin.main
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
+import com.ilhamfidatama.androidwithkotlin.R
+import com.ilhamfidatama.androidwithkotlin.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

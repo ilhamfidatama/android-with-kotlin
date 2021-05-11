@@ -1,6 +1,9 @@
 package com.ilhamfidatama.androidwithkotlin
 
-import com.ilhamfidatama.androidwithkotlin.crypto.Cryptocurrency
+import android.content.ContentValues
+import android.database.Cursor
+import com.ilhamfidatama.androidwithkotlin.db.DatabaseContract
+import com.ilhamfidatama.androidwithkotlin.db.crypto.Cryptocurrency
 
 object Utils {
 
@@ -25,4 +28,23 @@ object Utils {
             "https://indodax.com/v2/logo/png/color/nxt.png",
             "https://indodax.com/v2/logo/png/color/zil.png",
     )
+
+    fun toCryptocurrency(cursor: Cursor): Cryptocurrency{
+        val crypto = Cryptocurrency()
+        crypto.id = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseContract.CryptoColumns._ID))
+        crypto.name = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.CryptoColumns.NAME))
+        crypto.lastPrice = cursor.getDouble(cursor.getColumnIndexOrThrow(DatabaseContract.CryptoColumns.LAST_PRICE))
+        crypto.imagePath = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.CryptoColumns.IMAGE_PATH))
+
+        return crypto
+    }
+
+    fun toContentValues(cryptocurrency: Cryptocurrency): ContentValues{
+        val values = ContentValues()
+        values.put(DatabaseContract.CryptoColumns.NAME, cryptocurrency.name)
+        values.put(DatabaseContract.CryptoColumns.LAST_PRICE, cryptocurrency.lastPrice)
+        values.put(DatabaseContract.CryptoColumns.IMAGE_PATH, cryptocurrency.imagePath)
+
+        return values
+    }
 }

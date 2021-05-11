@@ -8,9 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.ilhamfidatama.androidwithkotlin.R
+import com.ilhamfidatama.androidwithkotlin.db.crypto.Cryptocurrency
 import kotlinx.android.synthetic.main.item_crypto.view.*
 
-class CryptoAdapter(private var cryptoList: MutableList<Cryptocurrency>): RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
+class CryptoAdapter: RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
+    var cryptoList = mutableListOf<Cryptocurrency>()
+        set(cryptocurrencies) {
+            cryptoList.clear()
+            cryptoList.addAll(cryptocurrencies)
+            notifyDataSetChanged()
+        }
 
     fun deleteData(index: Int){
         cryptoList.removeAt(index)
@@ -30,6 +37,11 @@ class CryptoAdapter(private var cryptoList: MutableList<Cryptocurrency>): Recycl
     fun insertData(crypto: Cryptocurrency, index: Int){
         cryptoList.add(index, crypto)
         notifyItemInserted(index)
+    }
+
+    fun updateName(name: String, index: Int){
+        cryptoList[index].name = name
+        notifyItemChanged(index)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CryptoViewHolder = CryptoViewHolder(
@@ -55,7 +67,7 @@ class CryptoAdapter(private var cryptoList: MutableList<Cryptocurrency>): Recycl
 
             //setup click listener of list
             itemView.setOnClickListener {
-                Toast.makeText(itemView.context, "cryptocurrency ${crypto.name}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "${crypto.id}: cryptocurrency ${crypto.name}", Toast.LENGTH_SHORT).show()
             }
         }
     }
